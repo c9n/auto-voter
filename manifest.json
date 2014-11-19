@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "洗刷刷",
+  "description": "洗刷刷，洗刷刷，噢噢",
+  "version": "1.0",
+  "permissions": [
+    "cookies",
+    "http://wap.nanshanski.com/"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://wap.nanshanski.com/*"],
+      "js": ["inject.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "injected.js"
+  ]
+}
