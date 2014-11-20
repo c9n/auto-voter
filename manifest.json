@@ -4,6 +4,8 @@
   "description": "洗刷刷，洗刷刷，噢噢",
   "version": "1.0",
   "permissions": [
+    "webRequest",
+    "webRequestBlocking",
     "cookies",
     "http://wap.nanshanski.com/"
   ],
