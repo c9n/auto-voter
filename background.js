@@ -2,11 +2,11 @@
 
 var url = 'http://wap.nanshanski.com';
 
-function makeid() {
+function makeid(count) {
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (var i = 0; i < 12; i++)
+    for (var i = 0; i < count; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
@@ -31,7 +31,7 @@ function clear_cookies() {
 }
 
 function random_vote() {
-    var time = Math.floor(Math.random() * 360) + 1;
+    var time = Math.floor(Math.random() * 10) + 1;
 
     clear_cookies();
 
@@ -39,9 +39,8 @@ function random_vote() {
         'url': url + '/*'
     }, function (tabs) {
         if (tabs.length > 0) {
-            var cookie = 'COOKIE_61bcff89-7415-47b8-88c2-841aab7f168f' + makeid();
+            var cookie = 'COOKIE_' + makeid(8) +'-' + makeid(4) + '-' + makeid(4) + '-' + makeid(4) + '-841aab7f168f' + makeid(12);
             chrome.tabs.update(tabs[0]['id'], {
-                // xxx => id
                 url: 'http://wap.nanshanski.com/ParticipateForVoting/userinfo/index.aspx?pvid=1&id=xxx&fromcookie=' + cookie
             })
         }
